@@ -1,4 +1,4 @@
-# Astro Starter Kit: Minimal
+# Ufyle Frontend
 
 ```sh
 npm create astro@latest -- --template minimal
