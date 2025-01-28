@@ -1,0 +1,52 @@
+---
+let uploadStatus = "";
+---
+
+<h2>Datei Upload</h2>
+<form id='uploadForm' method='POST' enctype='multipart/form-data'>
+  <label for='file'>Wähle eine Datei aus:</label>
+  <input type='file' id='file' name='file' required />
+
+  <label for='filename'>Dateiname (optional):</label>
+  <input type='text' id='filename' name='filename' required />
+
+  <button type='submit'>Datei hochladen</button>
+</form>
+
+<div>
+  {uploadStatus && <p>{uploadStatus}</p>}
+</div>
+
+<script>
+  const form = document.getElementById("uploadForm");
+  const uploadStatusDiv = document.querySelector("div");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const fileInput = document.getElementById("file");
+    const filenameInput = document.getElementById("filename");
+
+    const formData = new FormData();
+    formData.append("file", fileInput.files[0]);
+
+    const fileName = filenameInput.value;
+    const url = `http://localhost:8091/ufyle/partition/d5Il2Dj4ntpw7/file?name=${encodeURIComponent(fileName)}`;
+
+    try {
+      const response = await fetch(url, {
+        method: "PUT",
+        body: formData,
+      });
+
+      if (response.ok) {
+        uploadStatusDiv.innerHTML = `Datei ${fileName} wurde erfolgreich hochgeladen!`;
+      } else {
+        const errorData = await response.json();
+        uploadStatusDiv.innerHTML = `Fehler: ${errorData.message || "Unbekannter Fehler"}`;
+      }
+    } catch (error) {
+      uploadStatusDiv.innerHTML = `Fehler beim Hochladen: ${error.message}`;
+    }
+  });
+</script>

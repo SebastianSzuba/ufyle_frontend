@@ -1,16 +1,22 @@
 ---
-
+import SearchFile from "../pages/api/SearchFile.astro";
+import CreateFile from "../pages/api/CreateFile.astro";
+import ShowAll from "./api/ShowAll.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Document</title>
+  </head>
+  <body>
+    <body>
+      <h1>Ufyle File Manager</h1>
+      <CreateFile />
+      <SearchFile />
+      <ShowAll />
+    </body>
+  </body>
 </html>

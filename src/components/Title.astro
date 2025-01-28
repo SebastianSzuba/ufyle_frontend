@@ -1,0 +1,8 @@
+---
+const response = await fetch("http://localhost:8091/ufyle/partitions");
+const data = await response.json();
+
+const name = data.meta[0].name;
+---
+
+<h3>Current Partition: {name}</h3>
