@@ -1,6 +1,10 @@
 ---
+interface ApiResponse {
+  data: { name: string }[];
+}
+
 const response = await fetch("http://localhost:8091/ufyle/search?q=d5Il2Dj4ntpw7");
-const json = await response.json();
+const json: ApiResponse = await response.json();
 const namen = json.data.map((item) => item.name);
 ---
 
