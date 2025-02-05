@@ -8,9 +8,20 @@ const json: ApiResponse = await response.json();
 const namen = json.data.map((item) => item.name);
 ---
 
-<h2>Liste aller Datein:</h2>
-<p>
-  <ol>
-    {namen.map((name) => <li>{name}</li>)}
-  </ol>
-</p>
+<style>
+  .list-block {
+    margin: 50px 0px 50px 0px;
+    background-color: #2a9d8f;
+    border-radius: 15px;
+    padding: 30px;
+  }
+</style>
+
+<div class='list-block'>
+  <h2>Liste aller Datein:</h2>
+  <p>
+    <ol>
+      {namen.map((name) => <li>{name}</li>)}
+    </ol>
+  </p>
+</div>

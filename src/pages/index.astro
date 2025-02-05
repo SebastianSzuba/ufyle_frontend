@@ -4,7 +4,26 @@ import CreateFile from "../pages/api/CreateFile.astro";
 import ShowAll from "./api/ShowAll.astro";
 ---
 
-<!doctype html>
+<style>
+  body {
+    background-color: #1d1a05;
+    color: white;
+  }
+
+  .content-box {
+    width: 50%;
+    margin: 50px auto;
+  }
+
+  html {
+    font-family: "Courier New", Courier, monospace;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+</style>
+
 <html lang='en'>
   <head>
     <meta charset='UTF-8' />
@@ -13,10 +32,12 @@ import ShowAll from "./api/ShowAll.astro";
   </head>
   <body>
     <body>
-      <h1>Ufyle File Manager</h1>
-      <CreateFile />
-      <SearchFile />
-      <ShowAll />
+      <div class='content-box'>
+        <h1>Ufyle File Manager</h1>
+        <CreateFile />
+        <SearchFile />
+        <ShowAll />
+      </div>
     </body>
   </body>
 </html>

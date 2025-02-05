@@ -2,19 +2,37 @@
 let uploadStatus = "";
 ---
 
-<h2>Datei Upload</h2>
-<form id='uploadForm' method='POST' enctype='multipart/form-data'>
-  <label for='file'>Wähle eine Datei aus:</label>
-  <input type='file' id='file' name='file' required />
+<style>
+  .upload-block {
+    margin: 50px 0px 50px 0px;
+    background-color: #44355b;
+    border-radius: 15px;
+    padding: 30px;
+  }
+</style>
 
-  <label for='filename'>Dateiname (optional):</label>
-  <input type='text' id='filename' name='filename' required />
+<div class='upload-block'>
+  <h2>Datei Upload</h2>
+  <form id='uploadForm' method='POST' enctype='multipart/form-data'>
+    <label for='file'>Wähle eine Datei aus:</label>
+    <input type='file' id='file' name='file' required />
 
-  <button type='submit'>Datei hochladen</button>
-</form>
+    <br />
+    <br />
 
-<div>
-  {uploadStatus && <p>{uploadStatus}</p>}
+    <label for='filename'>Dateiname (optional):</label>
+    <input type='text' id='filename' name='filename' required />
+
+    <br />
+    <br />
+    <br />
+
+    <button type='submit'>Datei hochladen</button>
+  </form>
+
+  <div>
+    {uploadStatus && <p>{uploadStatus}</p>}
+  </div>
 </div>
 
 <script>
