@@ -5,9 +5,52 @@ let uploadStatus = "";
 <style>
   .upload-block {
     margin: 50px 0px 50px 0px;
-    background-color: #44355b;
+    background-color: #dddbcb;
     border-radius: 15px;
     padding: 30px;
+  }
+
+  button {
+    position: relative;
+    overflow: hidden;
+    height: 1.5rem;
+    padding: 0 2rem;
+    border-radius: 1.5rem;
+    background: #3d3a4e;
+    background-size: 400%;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  button:hover::before {
+    transform: scaleX(1);
+  }
+
+  .button-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    width: 100%;
+    height: inherit;
+    border-radius: inherit;
+    background: linear-gradient(82.3deg, rgba(150, 93, 233, 1) 10.8%, rgba(99, 88, 238, 1) 94.3%);
+    transition: all 0.475s;
+  }
+
+  .file-field {
+    border-radius: 5px;
+    box-shadow: none;
+    border: 1px solid black;
+    padding: 5px;
   }
 </style>
 
@@ -15,19 +58,21 @@ let uploadStatus = "";
   <h2>Datei Upload</h2>
   <form id='uploadForm' method='POST' enctype='multipart/form-data'>
     <label for='file'>Wähle eine Datei aus:</label>
-    <input type='file' id='file' name='file' required />
+    <input class='search-button' type='file' id='file' name='file' required />
 
     <br />
     <br />
 
     <label for='filename'>Dateiname (optional):</label>
-    <input type='text' id='filename' name='filename' required />
+    <input class='file-field' placeholder='Dateiname eingeben...' type='text' id='filename' name='filename' required />
 
     <br />
     <br />
     <br />
 
-    <button type='submit'>Datei hochladen</button>
+    <button type='submit'>
+      <span class='button-content'>Datei Upload </span>
+    </button>
   </form>
 
   <div>
